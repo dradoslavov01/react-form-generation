@@ -18,7 +18,7 @@ const CheckboxField: React.FC<CheckboxProps> = ({
       <FormControlLabel
         control={
           <MUICheckbox
-            checked={value}
+            checked={!!value}
             onChange={(e) => onChange(name, e.target.checked)}
             required={required}
           />
