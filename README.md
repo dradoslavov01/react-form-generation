@@ -28,7 +28,7 @@ npm install
 npm start
 ```
 
-## form JSON structure examples
+## JSON Schema Structure Examples
 
 ```json
 {
