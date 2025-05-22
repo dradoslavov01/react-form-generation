@@ -17,7 +17,8 @@
     "baseUrl": "src",
     "paths": {
       "@components/*": ["components/*"],
-      "@utils/*": ["types/*"]
+      "@utils/*": ["types/*"],
+      "@services/*": ["services/*"]
     },
     "jsx": "react-jsx"
   },
