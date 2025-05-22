@@ -11,7 +11,7 @@ interface Field {
     endpoint: string;
     inputs: string[];
   };
-  children?: Field[];
+  fields?: Field[];
 }
 
 export interface FormSchema {
