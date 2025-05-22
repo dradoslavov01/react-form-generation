@@ -58,7 +58,7 @@ const App: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    console.log('Submitted Values:', JSON.stringify(formValues));
+    console.log('Submitted Values:', JSON.stringify(formValues, null, 2));
     alert('Form submitted! Check console for output.');
   };
 
