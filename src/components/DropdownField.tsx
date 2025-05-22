@@ -8,6 +8,7 @@ const DropdownField: React.FC<DropdownFieldProps> = ({
   options,
   onChange,
   value,
+  required,
 }) => {
   return (
     <FormControl fullWidth margin='normal' key={name}>
@@ -16,6 +17,7 @@ const DropdownField: React.FC<DropdownFieldProps> = ({
         value={value || ''}
         onChange={(e) => onChange(name, e.target.value)}
         label={label}
+        required={required}
       >
         {options?.map((option) => (
           <MenuItem key={option} value={option}>

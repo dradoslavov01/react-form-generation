@@ -7,6 +7,7 @@ const Textarea: React.FC<TextareaProps> = ({
   onChange,
   rows,
   placeholder,
+  required,
 }) => {
   return (
     <textarea
@@ -15,6 +16,7 @@ const Textarea: React.FC<TextareaProps> = ({
       onChange={onChange}
       placeholder={placeholder}
       rows={rows}
+      required={required}
     />
   );
 };
