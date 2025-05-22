@@ -2,14 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
 import { DynamicFormField, JsonSchemaInputCard } from 'components';
 import { FormSchema } from 'types';
-
-const mockApiCall = async (endpoint: string, params: Record<string, any>) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({ autofilledValue: 'Mocked API Value' });
-    }, 1000);
-  });
-};
+import { fetchAutoFillData } from 'services/apiMockService';
 
 const App: React.FC = () => {
   const [jsonInput, setJsonInput] = useState<string>('');
@@ -24,7 +17,7 @@ const App: React.FC = () => {
       const parsed = JSON.parse(jsonInput);
       setSchema(parsed);
       setFormValues({});
-    } catch {
+    } catch (e) {
       setSchema(null);
     }
   }, [jsonInput]);
@@ -45,13 +38,16 @@ const App: React.FC = () => {
 
       if (
         field.autofillAPI &&
-        field.autofillAPI.inputs.every((i) => newValues[i])
+        field.autofillAPI.inputs.every((input) => newValues[input])
       ) {
         const params: Record<string, any> = {};
         field.autofillAPI.inputs.forEach((key) => {
           params[key] = newValues[key];
         });
-        const result = await mockApiCall(field.autofillAPI.endpoint, params);
+        const result = await fetchAutoFillData(
+          field.autofillAPI.endpoint,
+          params
+        );
         setFormValues((prev) => ({
           ...prev,
           [field.name]: (result as any).autofilledValue,
@@ -62,7 +58,7 @@ const App: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    console.log('Submitted Values:', formValues);
+    console.log('Submitted Values:', JSON.stringify(formValues, null, 2));
     alert('Form submitted! Check console for output.');
   };
 

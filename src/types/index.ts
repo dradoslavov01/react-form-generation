@@ -3,7 +3,7 @@ interface Field {
   label: string;
   name: string;
   options?: string[];
-  validations?: any;
+  required: boolean;
   dependencies?: string[];
   visibleIf?: Record<string, any>;
   group?: string;
@@ -30,6 +30,7 @@ export interface TextareaProps {
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   rows?: number;
   placeholder?: string;
+  required?: boolean;
 }
 
 export interface CheckboxProps {
@@ -37,6 +38,7 @@ export interface CheckboxProps {
   label: string;
   value: boolean;
   onChange: (name: string, value: boolean) => void;
+  required?: boolean;
 }
 
 export interface DropdownFieldProps {
@@ -45,6 +47,7 @@ export interface DropdownFieldProps {
   options: string[];
   onChange: (name: string, value: string) => void;
   value: string;
+  required?: boolean;
 }
 
 export interface JsonSchemaInputCardProps {

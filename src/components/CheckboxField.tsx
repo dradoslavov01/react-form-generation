@@ -11,14 +11,16 @@ const CheckboxField: React.FC<CheckboxProps> = ({
   label,
   value,
   onChange,
+  required,
 }) => {
   return (
     <FormGroup key={name}>
       <FormControlLabel
         control={
           <MUICheckbox
-            checked={value}
+            checked={!!value}
             onChange={(e) => onChange(name, e.target.checked)}
+            required={required}
           />
         }
         label={label}

@@ -26,6 +26,7 @@ const DynamicFormField: React.FC<DynamicFormFieldProps> = ({
           value={value || ''}
           onChange={(e) => onChange(field.name, e.target.value)}
           margin='normal'
+          required={field.required}
         />
       );
     case 'Textarea':
@@ -35,6 +36,7 @@ const DynamicFormField: React.FC<DynamicFormFieldProps> = ({
           onChange={(e) => onChange(field.name, e.target.value)}
           rows={4}
           placeholder={field.label}
+          required={field.required}
         />
       );
     case 'Dropdown':
@@ -45,6 +47,7 @@ const DynamicFormField: React.FC<DynamicFormFieldProps> = ({
           options={field.options || []}
           value={value}
           onChange={(name, value) => onChange(name, value)}
+          required={field.required}
         />
       );
     case 'Checkbox':
@@ -54,6 +57,7 @@ const DynamicFormField: React.FC<DynamicFormFieldProps> = ({
           label={field.label}
           value={value}
           onChange={(name, value) => onChange(name, value)}
+          required={field.required}
         />
       );
     case 'Radio button':
